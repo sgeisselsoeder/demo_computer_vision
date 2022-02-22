@@ -26,5 +26,6 @@ while True:  # read frames
     cv2.imshow("", img)  # press q or Esc to quit
     if (cv2.waitKey(1) & 0xFF == ord("q")) or (cv2.waitKey(1) == 27):
         break  # close camera
+
 cam.release()
 cv2.destroyAllWindows()
