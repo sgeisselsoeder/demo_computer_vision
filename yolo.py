@@ -20,8 +20,8 @@ while True:  # read frames
     img, preds = yolo.detectCustomObjectsFromImage(input_image=img,
                                                    custom_objects=None, input_type="array",
                                                    output_type="array",
-                                                   minimum_percentage_probability=70,
-                                                   display_percentage_probability=False,
+                                                   minimum_percentage_probability=60,
+                                                   display_percentage_probability=True,
                                                    display_object_name=True)  # display predictions
     cv2.imshow("", img)  # press q or Esc to quit
     if (cv2.waitKey(1) & 0xFF == ord("q")) or (cv2.waitKey(1) == 27):
