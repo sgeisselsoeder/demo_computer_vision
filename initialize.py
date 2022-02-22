@@ -2,8 +2,9 @@ import requests
 import os.path
 
 print("Don't forget to:")
-print("python3 -m venv .venvthis ")
-print("source .venvthis/bin/activate")
+print("sudo apt-get install python3-venv")
+print("python3 -m venv .venv ")
+print("source .venv/bin/activate")
 print("pip install -r requirements.txt")
 
 yolo_model_file = './models/yolo.h5'
