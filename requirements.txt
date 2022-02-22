@@ -1,3 +1,6 @@
 wheel
 imageai
 opencv-python
+tensorflow
+keras>=2.8
+numpy>=1.22
