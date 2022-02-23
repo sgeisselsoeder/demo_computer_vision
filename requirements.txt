@@ -2,5 +2,10 @@ wheel
 imageai
 opencv-python
 tensorflow
-keras>=2.8
-numpy>=1.22
+keras
+numpy
+
+# keras>=2.8
+# numpy>=1.22
+# keras==2.4.3
+# numpy==1.19.3
