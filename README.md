@@ -18,7 +18,7 @@ sudo apt-get update && apt-get install -y nvidia-docker2
 sudo systemctl restart docker
 
 ### Build image
-docker build -t demo_computer_vision .
+sudo docker build -t demo_computer_vision .
 
 # Run container
 sudo docker run --runtime nvidia -it --rm --gpus all --ipc=host --shm-size=1g --ulimit memlock=-1 --ulimit stack=67108864 --network host --device /dev/video0 -e DISPLAY=${DISPLAY} -v /tmp/.X11-unix:/tmp/.X11-unix demo_computer_vision
