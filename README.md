@@ -33,4 +33,5 @@ python yolo.py
 
 ### Optionally on the host:
 supervise gpu load on the host:
+
 watch -n 2 nvidia-smi
