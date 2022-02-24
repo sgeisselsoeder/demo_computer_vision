@@ -17,6 +17,9 @@ sudo apt-get update && apt-get install -y nvidia-docker2
 
 sudo systemctl restart docker
 
+### Get model
+python initialize.py
+
 ### Build image
 sudo docker build -t demo_computer_vision .
 
