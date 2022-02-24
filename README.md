@@ -23,8 +23,8 @@ python initialize.py
 ### Build image
 sudo docker build -t demo_computer_vision .
 
-# Run container
-sudo docker run --runtime nvidia -it --rm --gpus all --ipc=host --shm-size=1g --ulimit memlock=-1 --ulimit stack=67108864 --network host --device /dev/video0 -e DISPLAY=${DISPLAY} -v /tmp/.X11-unix:/tmp/.X11-unix demo_computer_vision
+# Run container (and - DANGER -  expose x server!)
+xhost +local:root && sudo docker run --runtime nvidia -it --rm --gpus all --ipc=host --shm-size=1g --ulimit memlock=-1 --ulimit stack=67108864 --network host --device /dev/video0 -e DISPLAY=${DISPLAY} -v /tmp/.X11-unix:/tmp/.X11-unix demo_computer_vision ; xhost -local:root
 
 relevant info from
 https://www.cloudsavvyit.com/10520/how-to-run-gui-applications-in-a-docker-container/
@@ -32,6 +32,12 @@ and
 https://catalog.ngc.nvidia.com/orgs/nvidia/containers/tensorflow
 
 ### Inside the container:
+#### Make sure GPU is working
+python -c "import tensorflow as tf; tf.test.is_gpu_available(cuda_only=True) "
+python -c "import tensorflow as tf; tf.config.list_physical_devices('GPU') "
+python -c "import tensorflow as tf; tf.test.gpu_device_name() "
+
+#### Start the script
 python yolo.py
 
 ### Optionally on the host:
